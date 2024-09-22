@@ -59,25 +59,59 @@ int main(){
                                     arrayOfStudents[i]=buffer[0];
                                 }
                             }
-                        }
-                    }   
-                    printf("\nSorted Students\n");
+                        }   
+                        printf("\nSorted Students\n");
     
-                    i=0;
-                    for(;i<count;i++){
-                        printf("Name: %s\n", arrayOfStudents[i].name);
-                        printf("Surname: %s\n", arrayOfStudents[i].surname);
-                        printf("Age: %d\n", arrayOfStudents[i].age);
-                        printf("Group: %s\n\n", arrayOfStudents[i].group);
+                        i=0;
+                        for(;i<count;i++){
+                            printf("Name: %s\n", arrayOfStudents[i].name);
+                            printf("Surname: %s\n", arrayOfStudents[i].surname);
+                            printf("Age: %d\n", arrayOfStudents[i].age);
+                            printf("Group: %s\n\n", arrayOfStudents[i].group);
+                        }
                     }
                     if(answer=='N'){
+                        for(;i<count;i++){
+                            for(j=i+1;j<count;j++){
+                                if(arrayOfStudents[i].(int)name[0]<arrayOfStudents[j].(int)name[0]){
+                                    buffer[0]=arrayOfStudents[j];
+                                    arrayOfStudents[j]=arrayOfStudents[i];
+                                    arrayOfStudents[i]=buffer[0];
+                                }
+                            }
+                        }   
+                        printf("\nSorted Students\n");
 
+                        i=0;
+                        for(;i<count;i++){
+                            printf("Name: %s\n", arrayOfStudents[i].name);
+                            printf("Surname: %s\n", arrayOfStudents[i].surname);
+                            printf("Age: %d\n", arrayOfStudents[i].age);
+                            printf("Group: %s\n\n", arrayOfStudents[i].group);
+                        }
                     }
                     if(answer=='S'){
-
+                        for(;i<count;i++){
+                            for(j=i+1;j<count;j++){
+                                if(arrayOfStudents[i].(int)surname[0]<arrayOfStudents[j].(int)surname[0]){
+                                    buffer[0]=arrayOfStudents[j];
+                                    arrayOfStudents[j]=arrayOfStudents[i];
+                                    arrayOfStudents[i]=buffer[0];
+                                }
+                            }
+                        }   
+                        printf("\nSorted Students\n");
+                        
+                        i=0;
+                        for(;i<count;i++){
+                            printf("Name: %s\n", arrayOfStudents[i].name);
+                            printf("Surname: %s\n", arrayOfStudents[i].surname);
+                            printf("Age: %d\n", arrayOfStudents[i].age);
+                            printf("Group: %s\n\n", arrayOfStudents[i].group);
+                        }
                     }
                     if(answer=='G'){
-
+                        printf("What group do you want to see?");
                     }
                 }else if(answer=='N'){
                     printf("Ok, goodbye!\n");

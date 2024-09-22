@@ -8,7 +8,7 @@ int j=0;
 struct nsog{
     char name[20];
     char surname[20];
-    int age=-1;
+    int age;
     char group[20];
 };
 struct nsog arrayOfStudents[2]={
@@ -37,10 +37,13 @@ void Delete(){
     printf("Write student data\n");
     printf("Write student name\n");
     scanf("%s", delete[0].name);
+    getchar();
     printf("Write student surname\n");
     scanf("%s", delete[0].surname);
+    getchar();
     printf("Write student group\n");
     scanf("%s", delete[0].group);
+    getchar();
     for(;i<count;i++){
         if(delete[0].name==arrayOfStudents[i].name & delete[0].surname==arrayOfStudents[i].surname & delete[0].group==arrayOfStudents[i].group){
             arrayOfStudents[i]=delete[1];

@@ -8,20 +8,16 @@ int j=0;
 struct nsog{
     char name[20];
     char surname[20];
-    int age;
+    int age=-1;
     char group[20];
 };
-struct nsog arrayOfStudents[]={
-    {"","",-1,""},
+struct nsog arrayOfStudents[2]={
+    {"QWERTY","QWERTY",100,"QWERTY"}
 };
 
-struct nsog buffer[]={
-    {"","",-1,""},
-};
+struct nsog buffer;
 
-struct nsog delete[]={
-    {"","",-1,""},
-};
+struct nsog delete[2];
 
 void Add(){
     printf("Write student name\n");
@@ -36,35 +32,52 @@ void Add(){
 }
 
 void Delete(){
+    int true=0;
+    i=0;
     printf("Write student data\n");
-    scanf(" %s", delete.name);
-    scanf(" %s", delete.surname);
-    scanf(" %s", delete.age);
-    scanf(" %s", delete.group);
+    printf("Write student name\n");
+    scanf("%s", delete[0].name);
+    printf("Write student surname\n");
+    scanf("%s", delete[0].surname);
+    printf("Write student group\n");
+    scanf("%s", delete[0].group);
     for(;i<count;i++){
-        if(delete==arrayOfStudents[i]){
-            arrayOfStudents[i]={"","",-1,""};
+        if(delete[0].name==arrayOfStudents[i].name & delete[0].surname==arrayOfStudents[i].surname & delete[0].group==arrayOfStudents[i].group){
+            arrayOfStudents[i]=delete[1];
+            for(;i<count;i++){
+                for(j=i+1;j<count;j++){
+                    if(arrayOfStudents[i].age<arrayOfStudents[j].age){
+                        buffer=arrayOfStudents[j];
+                        arrayOfStudents[j]=arrayOfStudents[i];
+                        arrayOfStudents[i]=buffer;
+                    }
+                }
+            }
+            count--;
+            true=1;
+            break;
         }
     }
-    if(i==count){
-        printf("We dont have that student\n")
-    }
+    if(true==0){
+        printf("We dont have that student\n");
+    };
 }
 
 void List(){
+    i=0;
     printf("In what type do you want to see them all?\n Write 'A' for sort in ages, write 'N' for sort in names, write 'S' for sort in surnames, write 'G' for sort in groups\n");
     scanf(" %c", &answer);
     if(answer=='A'){
         for(;i<count;i++){
             for(j=i+1;j<count;j++){
                 if(arrayOfStudents[i].age<arrayOfStudents[j].age){
-                    buffer[0]=arrayOfStudents[j];
+                    buffer=arrayOfStudents[j];
                     arrayOfStudents[j]=arrayOfStudents[i];
-                    arrayOfStudents[i]=buffer[0];
+                    arrayOfStudents[i]=buffer;
                 }
             }
         }   
-        printf("\nSorted Students\n");
+        printf("\nSorted Students\n\n");
     
         i=0;
         for(;i<count;i++){
@@ -78,9 +91,9 @@ void List(){
         for(;i<count;i++){
             for(j=i+1;j<count;j++){
                 if((int)arrayOfStudents[i].name[0]<(int)arrayOfStudents[j].name[0]){
-                    buffer[0]=arrayOfStudents[j];
+                    buffer=arrayOfStudents[j];
                     arrayOfStudents[j]=arrayOfStudents[i];
-                    arrayOfStudents[i]=buffer[0];
+                    arrayOfStudents[i]=buffer;
                 }
             }
         }   
@@ -98,9 +111,9 @@ void List(){
         for(;i<count;i++){
             for(j=i+1;j<count;j++){
                 if((int)arrayOfStudents[i].surname[0]<(int)arrayOfStudents[j].surname[0]){
-                    buffer[0]=arrayOfStudents[j];
+                    buffer=arrayOfStudents[j];
                     arrayOfStudents[j]=arrayOfStudents[i];
-                    arrayOfStudents[i]=buffer[0];
+                    arrayOfStudents[i]=buffer;
                 }
             }
         }   
@@ -136,5 +149,6 @@ int main(){
         }else{
             printf("Invalid input, please try again\n");
         }
+    }
     return 0;
 }

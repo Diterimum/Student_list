@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-char answer;
+char answer[20];
 static int count=0;
 int i=0;
 int j=0;
@@ -11,9 +11,8 @@ struct nsog{
     int age;
     char group[20];
 };
-struct nsog arrayOfStudents[2]={
-    {"QWERTY","QWERTY",100,"QWERTY"}
-};
+
+struct nsog arrayOfStudents[10];
 
 struct nsog buffer;
 
@@ -69,7 +68,7 @@ void Delete(){
 void List(){
     i=0;
     printf("In what type do you want to see them all?\n Write 'A' for sort in ages, write 'N' for sort in names, write 'S' for sort in surnames, write 'G' for sort in groups\n");
-    scanf(" %c", &answer);
+    scanf(" %c", &answer[0]);
     if(answer=='A'){
         for(;i<count;i++){
             for(j=i+1;j<count;j++){
@@ -140,14 +139,14 @@ int main(){
     for(;;){
         i=0;
         printf("\nWhat do you want to do?\nWrite 'A' for student add,\nwrite 'D' for student delete,\nwrite 'L' for student list.\nWrite 'X' for shut down\n");
-        scanf(" %c", &answer);
-        if(answer=='A'){
+        scanf(" %c", &answer[0]);
+        if(answer=="A"){
             Add();
-        }else if(answer=='D'){
+        }else if(answer=="D"){
             Delete();
-        }else if(answer=='L'){
+        }else if(answer=="L"){
             List();
-        }else if(answer=='X'){
+        }else if(answer=="X"){
             break;
         }else{
             printf("Invalid input, please try again\n");

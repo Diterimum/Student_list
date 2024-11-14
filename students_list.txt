@@ -1,0 +1,7 @@
+Ivan Ivanov 20 GroupA
+Petr Petrov 21 GroupB
+Svetlana Svetlova 19 GroupA
+Anna Ananova 22 GroupC
+Dmitry Dmitriev 23 GroupB
+Mikhail Mikhailov 20 GroupA
+Ekaterina Ekaterinina 18 GroupC

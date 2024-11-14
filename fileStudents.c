@@ -68,10 +68,10 @@ void textToStruct(){
                         arrayOfStudents[i].surname[b]=line[j];
                     }
                     if(k==2){
-                        if(arrayOfStudents[i].age=-1){
-                            arrayOfStudents[i].age=arrayOfStudents[i].age*(-10)+(int)line[j];
+                        if(arrayOfStudents[i].age==-1){
+                            arrayOfStudents[i].age=arrayOfStudents[i].age*(-10)+line[j]-'0';
                         }else{
-                            arrayOfStudents[i].age=arrayOfStudents[i].age*10+(int)line[j];
+                            arrayOfStudents[i].age=arrayOfStudents[i].age*10+line[j]-'0';
                         }
                     }
                     if(k==3){
@@ -79,7 +79,6 @@ void textToStruct(){
                     }
                     b=b+1;
                 }
-                j=j+1;
             }
         }
         count=count+1;

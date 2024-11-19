@@ -47,11 +47,12 @@ struct nsog delete[2]={
 void textToStruct(){
     int inWord=0;
     fp=fopen("students_list.txt", "r");
-    while(fgets(line,20,fp)!=NULL){
-        for(i=0;i<=count;i++){
+    i=0;
+    while(fgets(line,50,fp)!=NULL){
+        for(;i<=count;i++){
             j=0;k=0;b=0;int ageInteger=0;
             for(;(k<4);j++){
-                if(((int)line[j]>64 && (int)line[j]<91) || ((int)line[j]>96 && (int)line[j]<123)){
+                if(((int)line[j]>64 && (int)line[j]<91) || ((int)line[j]>96 && (int)line[j]<123) || ((int)line[j]>47 && (int)line[j]<58)){
                     inWord=1;
                 }else{
                     //if(inWord==1){
@@ -64,17 +65,17 @@ void textToStruct(){
                     if(k==0){
                         arrayOfStudents[i].name[b]=line[j];
                     }
-                    if(k==1){
+                    else if(k==1){
                         arrayOfStudents[i].surname[b]=line[j];
                     }
-                    if(k==2){
+                    else if(k==2){
                         if(arrayOfStudents[i].age==-1){
-                            arrayOfStudents[i].age=arrayOfStudents[i].age*(-10)+line[j]-'0';
+                            arrayOfStudents[i].age=arrayOfStudents[i].age*0+(line[j]-'0');
                         }else{
-                            arrayOfStudents[i].age=arrayOfStudents[i].age*10+line[j]-'0';
+                            arrayOfStudents[i].age=arrayOfStudents[i].age*10+(line[j]-'0');
                         }
                     }
-                    if(k==3){
+                    else if(k==3){
                         arrayOfStudents[i].group[b]=line[j];
                     }
                     b=b+1;

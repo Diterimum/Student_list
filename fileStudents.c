@@ -47,7 +47,7 @@ struct nsog delete[2]={
 void textToStruct(){
     int inWord=0;
     fp=fopen("students_list.txt", "r");
-    i=0;
+    i=0; count=0;
     while(fgets(line,50,fp)!=NULL){
         for(;i<=count;i++){
             j=0;k=0;b=0;int ageInteger=0;
@@ -55,10 +55,8 @@ void textToStruct(){
                 if(((int)line[j]>64 && (int)line[j]<91) || ((int)line[j]>96 && (int)line[j]<123) || ((int)line[j]>47 && (int)line[j]<58)){
                     inWord=1;
                 }else{
-                    //if(inWord==1){
-                        k=k+1;
-                        b=0;
-                    //}
+                    k=k+1;
+                    b=0;
                     inWord=0;
                 }
                 if(inWord==1){
@@ -85,6 +83,25 @@ void textToStruct(){
         count=count+1;
     }
 }
+
+void structToZero(){
+    for(i=0;i<count;i++){
+        arrayOfStudents[i]=delete[1];
+    }
+}
+
+void structToText(){
+    fp=fopen("students_list.txt", "w");
+    for(i=0;i<count;i++){
+        fprintf(fp, "%s %s %d %s", arrayOfStudents[i].name, arrayOfStudents[i].surname, arrayOfStudents[i].age, arrayOfStudents[i].group);
+        if(i!=count-1){
+            fprintf(fp, "\n");
+        }
+    }
+    structToZero();
+}
+
+
 
 void Add(){
     printf("Write student name\n");
@@ -259,6 +276,7 @@ int main(){
         }else{
             printf("Invalid input, please try again\n");
         }
+        structToText();
         fclose(fp);
     }
     return 0;
